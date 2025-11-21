@@ -5,7 +5,7 @@ import Layout from './components/Layout';
 import ImageConverter from './pages/tools/ImageConverter';
 import ImageEditor from './pages/tools/ImageEditor';
 import JsonFormatter from './pages/tools/JsonFormatter';
-import PasswordGenerator from './pages/tools/PasswordGenerator';
+import SecurityTools from './pages/tools/SecurityTools';
 import PdfTools from './pages/tools/PdfTools';
 import PdfEditor from './pages/tools/PdfEditor';
 import QrGenerator from './pages/tools/QrGenerator';
@@ -30,7 +30,7 @@ function App() {
           <Route path="/tools/pdf" element={<PdfTools />} />
           <Route path="/tools/pdf-editor" element={<PdfEditor />} />
           <Route path="/tools/dev" element={<JsonFormatter />} />
-          <Route path="/tools/security" element={<PasswordGenerator />} />
+          <Route path="/tools/security" element={<SecurityTools />} />
 
           <Route path="/tools/qr" element={<QrGenerator />} />
           <Route path="/tools/url" element={<UrlEncoder />} />
