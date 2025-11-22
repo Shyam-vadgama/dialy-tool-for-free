@@ -1,0 +1,201 @@
+/* --- General Styling & Animations (Point 7) --- */
+:root {
+    --bg-color: #1e1e1e;
+    --text-color: #d4d4d4;
+    --correct-color: #4ec9b0;
+    --incorrect-color: #f44747;
+    --cursor-color: #ffffff;
+    --current-word-bg: rgba(255, 255, 255, 0.1);
+    --border-color: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #252526;
+}
+
+/* --- UI Elements --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    font-size: 1.2em;
+}
+.stat-item span {
+    font-weight: bold;
+    color: var(--correct-color);
+}
+
+.modes {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.modes button {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.modes button:hover {
+    background-color: #3c3c3c;
+}
+.modes button.active {
+    background-color: var(--correct-color);
+    color: var(--bg-color);
+    border-color: var(--correct-color);
+}
+
+/* --- Typing Area (Points 3 & 4) --- */
+.typing-wrapper {
+    position: relative;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+    line-height: 1.8;
+}
+
+#typing-display {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    user-select: none; /* Prevents text selection which feels weird */
+    min-height: 150px;
+}
+
+#typing-display .char {
+    position: relative;
+    transition: color 0.1s, background-color 0.1s;
+}
+
+#typing-display .char.correct {
+    color: var(--correct-color);
+}
+
+#typing-display .char.incorrect {
+    color: var(--incorrect-color);
+    background-color: rgba(244, 71, 71, 0.2);
+    animation: error-shake 0.3s ease-out; /* Subtle error animation */
+}
+
+#typing-display .char.current-word {
+    background-color: var(--current-word-bg);
+    border-radius: 3px;
+}
+
+#typing-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: transparent;
+    color: transparent;
+    caret-color: transparent; /* Hide default cursor */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em; /* Inherited from wrapper */
+    line-height: 1.8; /* Match display */
+    resize: none;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    z-index: 10;
+}
+
+#typing-input:focus {
+    outline: none;
+}
+
+#typing-input:focus + #typing-display {
+    outline: 2px solid var(--correct-color);
+    outline-offset: -2px;
+}
+
+#cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: var(--cursor-color);
+    position: absolute;
+    top: 15px;
+    animation: blink 1s infinite;
+    pointer-events: none;
+    z-index: 11;
+}
+
+/* --- Animations --- */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes error-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+/* --- Results Screen (Point 8) --- */
+#results {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+#results h2 {
+    margin-top: 0;
+    color: var(--correct-color);
+}
+#results .metric {
+    margin-bottom: 10px;
+}
+#results .heatmap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+#results .key {
+    padding: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+}
+#results .key.error {
+    background-color: var(--incorrect-color);
+    color: white;
+}

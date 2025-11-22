@@ -19,40 +19,48 @@ import ToolCard from '../components/ToolCard';
 
 const categories = [
     {
-        title: 'Media Tools',
+        title: 'Image Tools',
         tools: [
             { title: 'Image Converter', description: 'Convert images between PNG, JPG, WEBP formats.', icon: FileImage, path: '/tools/image', color: '#3b82f6' },
             { title: 'Image Editor', description: 'Edit images with basic operations like rotate, flip, and grayscale.', icon: FileImage, path: '/tools/image-editor', color: '#3b82f6' },
-            { title: 'PDF Tools', description: 'Merge PDFs or extract specific pages easily.', icon: FileText, path: '/tools/pdf', color: '#ef4444' },
-            { title: 'PDF Editor', description: 'Perform various operations on PDF files like merging, splitting, and rotating pages.', icon: FileText, path: '/tools/pdf-editor', color: '#ef4444' },
-
         ]
     },
     {
-        title: 'Developer Utilities',
+        title: 'PDF Tools',
+        tools: [
+            { title: 'PDF Tools', description: 'Merge PDFs or extract specific pages easily.', icon: FileText, path: '/tools/pdf', color: '#ef4444' },
+            { title: 'PDF Editor', description: 'Perform various operations on PDF files like merging, splitting, and rotating pages.', icon: FileText, path: '/tools/pdf-editor', color: '#ef4444' },
+        ]
+    },
+    {
+        title: 'Security',
+        tools: [
+            { title: 'Security Tools', description: 'Generate passwords, JWT tokens, and scan URLs.', icon: Shield, path: '/tools/security', color: '#22c55e' },
+        ]
+    },
+    {
+        title: 'Developer',
         tools: [
             { title: 'JSON Formatter', description: 'Validate, format, and minify JSON data.', icon: Code, path: '/tools/dev', color: '#eab308' },
             { title: 'UUID Generator', description: 'Generate random version 4 UUIDs in bulk.', icon: Fingerprint, path: '/tools/uuid', color: '#8b5cf6' },
             { title: 'Base64 Converter', description: 'Encode and decode text or files to Base64.', icon: Binary, path: '/tools/base64', color: '#ec4899' },
-        ]
-    },
-    {
-        title: 'Text & Content',
-        tools: [
-            { title: 'Markdown Preview', description: 'Real-time Markdown editor and previewer.', icon: FileCode, path: '/tools/markdown', color: '#10b981' },
-            { title: 'Text Converter', description: 'Change case, count words, remove duplicates.', icon: Type, path: '/tools/text', color: '#06b6d4' },
             { title: 'URL Encoder', description: 'Encode or decode URLs safely.', icon: LinkIcon, path: '/tools/url', color: '#f97316' },
+            { title: 'Markdown Preview', description: 'Real-time Markdown editor and previewer.', icon: FileCode, path: '/tools/markdown', color: '#10b981' },
         ]
     },
     {
-        title: 'Daily Essentials',
+        title: 'Text',
+        tools: [
+            { title: 'Text Converter', description: 'Change case, count words, remove duplicates.', icon: Type, path: '/tools/text', color: '#06b6d4' },
+        ]
+    },
+    {
+        title: 'Other',
         tools: [
             { title: 'QR Generator', description: 'Create custom QR codes for any link or text.', icon: QrCode, path: '/tools/qr', color: '#14b8a6' },
-            { title: 'Password Gen', description: 'Create strong, secure passwords instantly.', icon: Shield, path: '/tools/security', color: '#22c55e' },
             { title: 'Color Tools', description: 'Pick, convert, and generate color palettes.', icon: Palette, path: '/tools/color', color: '#f43f5e' },
             { title: 'Unit Converter', description: 'Convert length, weight, temperature, and more.', icon: Ruler, path: '/tools/units', color: '#6366f1' },
         ]
-        
     }
 ];
 
