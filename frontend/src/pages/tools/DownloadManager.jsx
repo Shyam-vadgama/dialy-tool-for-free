@@ -29,7 +29,7 @@ const DownloadManager = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ url: basicUrl }),
+        body: JSON.stringify({ url: basicUrl, format: 'best' }),
       });
 
       const data = await response.json();
@@ -293,7 +293,7 @@ const DownloadManager = () => {
               <div className="video-formats">
                 <h4 style={{ color: 'var(--text-primary)', marginBottom: '12px' }}>Available Formats:</h4>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '12px' }}>
-                  {videoFormats.map((format, index) => (
+                  {videoFormats.slice(0, 6).map((format, index) => (
                     <div key={index} style={{
                       padding: '12px',
                       border: '1px solid var(--border)',

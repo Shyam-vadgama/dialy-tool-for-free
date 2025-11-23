@@ -91,7 +91,7 @@ async def basic_download(request: BasicDownloadRequest):
     try:
         # yt-dlp configuration for basic video download
         ydl_opts = {
-            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
+            'format': request.format,
             'extract_flat': False,
             'writeinfojson': True,
             'writethumbnail': True,
@@ -119,7 +119,7 @@ async def basic_download(request: BasicDownloadRequest):
                 'title': info.get('title', 'Unknown'),
                 'duration': info.get('duration'),
                 'thumbnail': info.get('thumbnail'),
-                'formats': formats,  # Return all formats
+                'formats': formats[:10],  # Limit to first 10 formats
                 'original_url': request.url
             }
             
@@ -254,13 +254,11 @@ async def download_proxy(url: str, filename: str = None):
         raise HTTPException(status_code=400, detail=f"Failed to download file: {str(e)}")
 
 # Include Routers
-from backend.routers import converters, pdf_tools, image_editor, pdf_editor, security, code_formatter, universal_scraper
+from backend.routers import converters, pdf_tools, image_editor, pdf_editor, security
 app.include_router(converters.router)
 app.include_router(pdf_tools.router)
 app.include_router(image_editor.router)
 app.include_router(pdf_editor.router)
 app.include_router(security.router)
-app.include_router(code_formatter.router)
-app.include_router(universal_scraper.router)
 
 
