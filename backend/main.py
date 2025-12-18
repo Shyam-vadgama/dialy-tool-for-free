@@ -254,11 +254,13 @@ async def download_proxy(url: str, filename: str = None):
         raise HTTPException(status_code=400, detail=f"Failed to download file: {str(e)}")
 
 # Include Routers
-from backend.routers import converters, pdf_tools, image_editor, pdf_editor, security
+from backend.routers import converters, pdf_tools, image_editor, pdf_editor, security, advance_search, web_to_app
 app.include_router(converters.router)
 app.include_router(pdf_tools.router)
 app.include_router(image_editor.router)
 app.include_router(pdf_editor.router)
 app.include_router(security.router)
+app.include_router(advance_search.router)
+app.include_router(web_to_app.router)
 
 

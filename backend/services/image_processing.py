@@ -47,3 +47,21 @@ def apply_image_operation(file_content: bytes, operation: str) -> io.BytesIO:
         return output
     except Exception as e:
         raise ValueError(f"Image operation failed: {str(e)}")
+
+def resize_image(file_content: bytes, width: int, height: int) -> io.BytesIO:
+    """
+    Resize an image to the specified width and height.
+    """
+    try:
+        image = Image.open(io.BytesIO(file_content))
+        original_format = image.format if image.format else "PNG"
+        
+        # Resize using LANCZOS filter for high quality
+        resized_image = image.resize((width, height), Image.Resampling.LANCZOS)
+        
+        output = io.BytesIO()
+        resized_image.save(output, format=original_format)
+        output.seek(0)
+        return output
+    except Exception as e:
+        raise ValueError(f"Image resizing failed: {str(e)}")

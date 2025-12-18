@@ -36,6 +36,7 @@ const Sidebar = () => {
         { icon: Palette, label: 'Color Tools', path: '/tools/color' },
         { icon: Ruler, label: 'Unit Converter', path: '/tools/units' },
         { icon: Binary, label: 'Base64', path: '/tools/base64' },
+        { icon: LayoutGrid, label: 'Advance Search', path: '/tools/advance-search' },
     ];
 
     return (

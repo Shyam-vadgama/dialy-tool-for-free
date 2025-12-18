@@ -13,7 +13,9 @@ import {
     FileCode,
     Palette,
     Ruler,
-    Binary
+    Binary,
+    Maximize,
+    AppWindow
 } from 'lucide-react';
 import ToolCard from '../components/ToolCard';
 
@@ -22,6 +24,7 @@ const categories = [
         title: 'Media Tools',
         tools: [
             { title: 'Image Converter', description: 'Convert images between PNG, JPG, WEBP formats.', icon: FileImage, path: '/tools/image', color: '#3b82f6' },
+            { title: 'Image Resizer', description: 'Resize images by pixel dimensions or presets.', icon: Maximize, path: '/tools/image-resizer', color: '#3b82f6' },
             { title: 'Image Editor', description: 'Edit images with basic operations like rotate, flip, and grayscale.', icon: FileImage, path: '/tools/image-editor', color: '#3b82f6' },
             { title: 'PDF Tools', description: 'Merge PDFs or extract specific pages easily.', icon: FileText, path: '/tools/pdf', color: '#ef4444' },
             { title: 'PDF Editor', description: 'Perform various operations on PDF files like merging, splitting, and rotating pages.', icon: FileText, path: '/tools/pdf-editor', color: '#ef4444' },
@@ -31,6 +34,7 @@ const categories = [
     {
         title: 'Developer Utilities',
         tools: [
+            { title: 'Web to App', description: 'Generate Desktop (Electron) & PWA wrappers for your website.', icon: AppWindow, path: '/tools/web-to-app', color: '#8b5cf6' },
             { title: 'JSON Formatter', description: 'Validate, format, and minify JSON data.', icon: Code, path: '/tools/dev', color: '#eab308' },
             { title: 'UUID Generator', description: 'Generate random version 4 UUIDs in bulk.', icon: Fingerprint, path: '/tools/uuid', color: '#8b5cf6' },
             { title: 'Base64 Converter', description: 'Encode and decode text or files to Base64.', icon: Binary, path: '/tools/base64', color: '#ec4899' },

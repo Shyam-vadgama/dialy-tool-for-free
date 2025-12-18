@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 
 import ImageConverter from './pages/tools/ImageConverter';
+import ImageResizer from './pages/tools/ImageResizer';
 import ImageEditor from './pages/tools/ImageEditor';
 import JsonFormatter from './pages/tools/JsonFormatter';
 import SecurityTools from './pages/tools/SecurityTools';
@@ -18,6 +19,8 @@ import UnitConverter from './pages/tools/UnitConverter';
 import Base64Converter from './pages/tools/Base64Converter';
 import DownloadManager from './pages/tools/DownloadManager';
 import Home from './pages/Home';
+import AdvanceSearch from './pages/tools/AdvanceSearch';
+import WebToApp from './pages/tools/WebToApp';
 
 function App() {
   return (
@@ -26,7 +29,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tools/image" element={<ImageConverter />} />
+          <Route path="/tools/image-resizer" element={<ImageResizer />} />
           <Route path="/tools/image-editor" element={<ImageEditor />} />
+          <Route path="/tools/web-to-app" element={<WebToApp />} />
           <Route path="/tools/pdf" element={<PdfTools />} />
           <Route path="/tools/pdf-editor" element={<PdfEditor />} />
           <Route path="/tools/dev" element={<JsonFormatter />} />
@@ -37,6 +42,7 @@ function App() {
           <Route path="/tools/text" element={<TextConverter />} />
           <Route path="/tools/uuid" element={<UuidGenerator />} />
           <Route path="/tools/markdown" element={<MarkdownPreview />} />
+          <Route path="/tools/advance-search" element={<AdvanceSearch />} />
 
           <Route path="/tools/color" element={<ColorTools />} />
           <Route path="/tools/units" element={<UnitConverter />} />
